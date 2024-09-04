@@ -8,7 +8,10 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import accuracy_score, confusion_matrix
 import os
 
-# mlflow.set_tracking_uri("")
+mlflow.set_tracking_uri("https://dagshub.com/SandeshDeshmukh2710/mlflow-dagshub-demo.mlflow")
+
+import dagshub
+dagshub.init(repo_owner='SandeshDeshmukh2710', repo_name='mlflow-dagshub-demo', mlflow=True)
 
 # Load the iris dataset
 iris = load_iris()
@@ -20,7 +23,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 max_depth = 10
 
 
-mlflow.set_experiment('iris-dt2')
+mlflow.set_experiment('iris-dt')
 
 with mlflow.start_run():
 
